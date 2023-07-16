@@ -21,7 +21,7 @@ if st.button("Click"):
     st.session_state["text_input"] = "Hello, World"
 
 ボタンが押される/入力されると上から処理をし直すので、
-まず最初にst.text_input("Message", key="text_input")でst.session_state["text_input"]が無を取得
+まず最初にst.text_input("Message", key="text_input")でst.session_state["text_input"]がウィジェットを取得
 設定後の値変更はできない(st.session_state.text_input cannot be modified after 
 the widget with key text_input is instantiated.)のでエラーが起きる。
 

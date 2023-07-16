@@ -23,3 +23,24 @@ def increment_counter():    # 足し算するよ
 st.button("Increment", on_click=increment_counter) # 押されたらincrement_counter()実行してね
 
 st.write("Count = ", st.session_state.count)
+
+_ = ''' 
+
+increment = st.button("Increment")
+if increment:
+    st.session_state.count += 1
+st.write("Count = ", st.session_state.count)
+と、
+def increment_counter():
+    st.session_state.count += 1
+st.button("Increment", on_click=increment_counter)
+st.write("Count = ", st.session_state.count)
+の違いって何？
+↓
+if条件分岐だと押されたか押されてないかをチェックしてそれぞれの処理をする
+(=押されなかった際の処理が存在する。elseがなくても「何もしないを実行する」みたいな...)
+
+コールバックだと押された時だけ紐づけられた処理を実行する
+(=押されなかった際の処理ってやつがない)
+
+'''
