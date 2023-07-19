@@ -16,4 +16,11 @@ class MockDB:
 
     @contextmanager
     def connect(self) -> Generator[dataset.Database, None, None]:
-
+        db = dataset.connect(self._dbname)
+        db.begin()
+        try:
+            yield db
+            db.commit()
+        except Exception as e:
+            db.rollback()
+            raise e
